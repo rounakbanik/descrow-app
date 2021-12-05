@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
 import './App.css';
+import ContractCreation from './components/ContractCreation';
 import Header from './components/Header';
 import Jumbotron from './components/Jumbotron';
 import Wallet from './components/Wallet';
@@ -18,6 +19,7 @@ function App() {
       <div className="app-container">
         <Jumbotron />
         <Wallet currentAccount={currentAccount} accountHandler={accountHandler} />
+        <ContractCreation currentAccount={currentAccount} />
       </div>
 
     </Fragment>
