@@ -1,10 +1,27 @@
+import { Fragment, useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Jumbotron from './components/Jumbotron';
+import Wallet from './components/Wallet';
 
 function App() {
+
+  const [currentAccount, setCurrentAccount] = useState(null);
+
+  const accountHandler = (account) => {
+    setCurrentAccount(account);
+  }
+
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <Fragment>
+      <Header currentAccount={currentAccount} />
+      <div className="app-container">
+        <Jumbotron />
+        <Wallet currentAccount={currentAccount} accountHandler={accountHandler} />
+      </div>
+
+    </Fragment>
+
   );
 }
 

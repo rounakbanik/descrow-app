@@ -1,0 +1,30 @@
+header {
+    padding: 40px 60px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 0px;
+}
+
+header div {
+    margin: 0px 25px;
+    background: #1D2B38;
+    padding: 15px 25px;
+    font-size: 14px;
+}
+
+.online-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.online {
+    background: green;
+}
+
+.offline {
+    background: red;
+}
