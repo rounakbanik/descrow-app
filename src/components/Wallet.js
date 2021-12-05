@@ -77,15 +77,11 @@ const Wallet = (props) => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
-
-        if (window.ethereum) {
-            window.ethereum.on('chainChanged', (_chainId) => window.location.reload());
-        }
     })
 
     return (
         <Fragment>
-            {!props.currentAccount && <button className='cta-button' onClick={connectWallet}>
+            {!props.currentAccount && <button className='cta-button cw-theme' onClick={connectWallet}>
                 Connect Wallet
             </button>}
         </Fragment>

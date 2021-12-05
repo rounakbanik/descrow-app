@@ -1,10 +1,12 @@
 .jumbotron h1 {
     font-size: 48px;
-    color: #63D596;
+    color: #48BB78;
     margin: 20px;
+    margin-top: 0px;
 }
 
 .jumbotron h2 {
     font-size: 24px;
     font-weight: 300;
+    line-height: 36px;
 }

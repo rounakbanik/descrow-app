@@ -7,7 +7,7 @@ function Jumbotron() {
                 Descrow
             </h1>
             <h2>
-                A decentralized escrow protocol facilitating trustless payments
+                A decentralized escrow protocol facilitating<br /> trustless payments
             </h2>
         </div>
     )

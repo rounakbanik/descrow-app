@@ -1,0 +1,63 @@
+.form-container {
+    border: 1px solid white;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    /* background: #63D596; */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.form-container h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    color: rgba(255,255,255,0.6);
+}
+
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    /* border: 1px solid #bbb; */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #E2E8F0;
+}
+
+.form-container input:focus {
+    outline: none;
+    border: 3px solid #4299E1;
+}
+
+.form-control {
+    margin: 40px 15px;
+}
+
+.form-container button {
+    display: inline-block;
+    margin: 10px 15px;
+    width: 150px;
+    max-width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    background: #38A169;
+    color: white;
+    font-weight: bold;
+}
+
+.form-container .cancelBtn {
+    background: rgba(255,255,255,0.15);
+    margin-left: 0px;
+}
