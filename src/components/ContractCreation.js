@@ -65,7 +65,7 @@ const ContractCreation = (props) => {
                 {mineStatus === 'mining' &&
                     <div className={`form-submission ${mineStatus}`}>
                         <p>
-                            <i class="fa fa-spinner fa-spin"></i>
+                            <i className="fa fa-spinner fa-spin"></i>
                             &nbsp;Transaction is mining
                         </p>
                     </div>}

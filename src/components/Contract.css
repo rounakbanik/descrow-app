@@ -31,6 +31,10 @@
     background: green;
 }
 
+.Unlocked {
+    background: yellow;
+}
+
 .Cancelled {
     background: red;
 }
@@ -60,4 +64,19 @@
     margin-top: 10px;
     margin-bottom: 10px;
     color: black;
+}
+
+.action-button-container {
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+}
+
+.action-button-container button {
+    background: inherit;
+    min-width: 100px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    color: white;
 }

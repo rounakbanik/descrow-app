@@ -47,7 +47,32 @@ const ContractView = (props) => {
 
         contracts = contracts.reverse();
         setContractList(contracts);
-    }, []);
+
+        // Set up event listener for factory contract
+        factoryContract.on('ContractCreated', (buyer, seller, price, addr) => {
+
+            if (props.currentAccount.toLowerCase() === buyer.toLowerCase() ||
+                props.currentAccount.toLowerCase() === seller.toLowerCase()) {
+                console.log("Hey oh!");
+                console.log(buyer, seller, price, addr);
+                let newContract = {
+                    active: true,
+                    cancelled: false,
+                    buyer: buyer,
+                    seller: seller,
+                    buyerCancel: false,
+                    sellerCancel: false,
+                    buyerStake: false,
+                    sellerStake: false,
+                    address: addr,
+                    price: ethers.utils.formatEther(price),
+                }
+                setContractList(prevState => [newContract, ...prevState]);
+            }
+
+        });
+
+    }, [props.currentAccount]);
 
     // Load contract data when component loads
     useEffect(() => {

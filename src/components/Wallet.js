@@ -1,10 +1,11 @@
+import { useCallback } from 'react';
 import { Fragment, useEffect } from 'react';
 import { MUMBAI as NETWORK } from '../data/networks';
 import './Wallet.css';
 
 const Wallet = (props) => {
 
-    const checkIfWalletIsConnected = async () => {
+    const checkIfWalletIsConnected = useCallback(async () => {
         const { ethereum } = window;
 
         if (!ethereum) {
@@ -34,7 +35,7 @@ const Wallet = (props) => {
         } else {
             console.log("No authorized account found");
         }
-    }
+    }, [props])
 
     const connectWallet = async () => {
 
@@ -77,7 +78,7 @@ const Wallet = (props) => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
-    })
+    }, [checkIfWalletIsConnected])
 
     return (
         <Fragment>

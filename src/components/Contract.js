@@ -4,11 +4,36 @@ import Party from './Party';
 
 const Contract = (props) => {
 
+    const isBuyer = props.currentAccount.toLowerCase() === props.contract.buyer;
+    const isLocked = props.contract.buyerStake && props.contract.sellerStake;
+    const isActive = props.contract.active;
+    const noCancel = !props.contract.buyerCancel && !props.contract.sellerCancel;
+
     const getStatus = () => {
-        if (props.contract.active) return 'Active';
+        if (props.contract.active && isLocked) return 'Active';
+        else if (props.contract.active && !isLocked) return 'Unlocked';
         else if (props.contract.cancelled) return 'Cancelled';
         return 'Completed';
     }
+
+    const isStaked = () => {
+        if (isBuyer && props.contract.buyerStake) return true;
+        if (!isBuyer && props.contract.sellerStake) return true;
+        return false;
+    }
+
+    const isCancelled = () => {
+        if (isBuyer && props.contract.buyerCancel) return true;
+        if (!isBuyer && props.contract.sellerCancel) return true;
+        return false;
+    }
+
+
+    const btnConfirm = isBuyer && isLocked && noCancel;
+    const btnStake = !isLocked && !isStaked();
+    const btnRevokeStake = !isLocked && isStaked();
+    const btnCancel = isLocked && !isCancelled();
+    const btnRevokeCancel = isLocked && isCancelled();
 
     return (
         <div className='contract'>
@@ -43,6 +68,16 @@ const Contract = (props) => {
                     cancelled={props.contract.sellerCancel}
                 />
             </div>
+            {isActive &&
+                <div className='action-button-container'>
+                    {btnStake && <button>Stake</button>}
+                    {btnRevokeStake && <button>Withdraw Stake</button>}
+                    {btnCancel && <button>Cancel</button>}
+                    {btnRevokeCancel && <button>Revoke Cancel</button>}
+                    {btnConfirm && <button>Finish</button>}
+                </div>
+
+            }
         </div>
     )
 }
