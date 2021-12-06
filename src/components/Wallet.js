@@ -20,7 +20,6 @@ const Wallet = (props) => {
         if (accounts.length !== 0) {
             const account = accounts[0];
             console.log("Found an authorized account: ", account);
-            props.accountHandler(account);
 
             // Switch network if it's not the correct chain
             try {
@@ -28,6 +27,7 @@ const Wallet = (props) => {
                     method: "wallet_switchEthereumChain",
                     params: [{ chainId: NETWORK.chainId }],
                 });
+                props.accountHandler(account);
             } catch (err) {
                 console.log(err);
             }
@@ -49,31 +49,33 @@ const Wallet = (props) => {
         try {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             console.log("Found an account! Address: ", accounts[0]);
+
+            await ethereum.request({
+                method: "wallet_switchEthereumChain",
+                params: [{ chainId: NETWORK.chainId }],
+            });
+
             props.accountHandler(accounts[0]);
 
         } catch (err) {
             console.log(err);
-        }
 
-        // Make sure user is on the correct network
-        try {
-            await ethereum.request({
-                method: "wallet_switchEthereumChain",
-                params: [{ chainId: NETWORK.chainId }],
-            })
-        } catch (err) {
             // If user doesn't have network configured, add it
             if (err.code === 4902) {
                 try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                     await ethereum.request({
                         method: "wallet_addEthereumChain",
                         params: [NETWORK],
                     });
+                    props.accountHandler(accounts[0]);
                 } catch (err) {
                     alert(err.message);
                 }
             }
         }
+
+
     }
 
     useEffect(() => {

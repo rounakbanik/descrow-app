@@ -34,17 +34,13 @@ const ContractCreation = (props) => {
         try {
             const formattedPrice = ethers.utils.parseEther(data.price);
             txn = await factoryContract.createContract(data.buyer, data.seller, formattedPrice);
-            console.log("Mining... -", txn.hash);
-
             await txn.wait();
-            console.log("Mined- ", txn.hash);
             setMineStatus('success');
 
         } catch (err) {
             console.log(err);
             setMineStatus('error');
         }
-        console.log(data);
     }
 
     return (
