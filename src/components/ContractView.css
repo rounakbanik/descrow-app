@@ -1,0 +1,25 @@
+.contract-container {
+    max-width: 900px;
+    margin: 30px auto;
+    margin-top: 80px;
+    padding: 25px 10px;
+}
+
+.contract-container h2 {
+    font-size: 36px;
+    margin: 10px;
+    color: #9F7AEA;
+    margin-bottom: 40px;
+}
+
+.contract-loader i {
+    font-size: 30px;
+    color: #48BB78;
+}
+
+.no-contracts {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px auto;
+    padding: 10px 30px;
+}

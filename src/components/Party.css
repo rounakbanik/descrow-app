@@ -1,0 +1,39 @@
+.contract-parties .buyer {
+    margin-right: 5px;
+    background: #48BB78;
+}
+
+.contract-parties .seller {
+    margin-left: 5px;
+    background: #9F7AEA;
+}
+
+.party .party-heading {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.party p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.party-heading span {
+    font-weight: 400;
+}
+
+.party a, .party a:visited {
+    color: black !important;
+}
+
+.party-statuses {
+    margin-top: 30px;
+}
+
+.party-status {
+    margin-bottom: 10px;
+}
+
+.statusq {
+    font-weight: bold;
+}
