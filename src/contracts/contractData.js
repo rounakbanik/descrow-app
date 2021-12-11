@@ -1,7 +1,7 @@
 import factory from './DescrowFactory.json';
 import descrow from './Descrow.json';
 
-const factoryAddress = "0xBDAb1F857dC80968022784cc1C868820BFD2F7c5";
+const factoryAddress = "0xF618dcA7f04993567790B336c18982c96604DAB1";
 const factoryAbi = factory.abi;
 const descrowAbi = descrow.abi;
 
